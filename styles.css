@@ -54,13 +54,18 @@ header {
 
 }
 
-#colors {
-    background-color: #33272a;
+
+#colors{
+    display: none;
+  }
+
+#colors-label{
+    display: block;
     width: 100px;
-    height: 100px;
+    aspect-ratio: 1/1;
+    background-color: #33272a;
     border-radius: 20px;
-    border: none;
-}
+  }
 
 #canvas {
     display: flex;
@@ -98,6 +103,11 @@ button {
     color: #33272a;
     font-weight: bold;
     cursor: pointer;
+}
+
+.selected {
+    background-color: #33272a;;
+    color:  #ff8ba7;;
 }
 
 #sliderValue {

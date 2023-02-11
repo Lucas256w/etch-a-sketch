@@ -38,8 +38,15 @@ function createCanvas(value) {
 const canvas = document.querySelector("#canvas");
 const slider = document.querySelector('.slider');
 const sliderValueText = document.querySelector('#sliderValue');
+const colorsLabel = document.querySelector("#colors-label");
 const colorSelect = document.querySelector('#colors');
+const colorMode = document.querySelector('.colorMode');
+const rainbowMode = document.querySelector('.rainbowMode');
+const eraser = document.querySelector('.eraser');
+const clear = document.querySelector('.clear');
+const button = document.querySelectorAll('button')
 
+colorMode.classList.add('selected');
 
 slider.addEventListener('change', function() {
     sliderValue = this.value
@@ -54,6 +61,35 @@ slider.addEventListener('input', function() {
 
 colorSelect.addEventListener('change', function() {
     color = this.value
+    colorsLabel.style.backgroundColor = color
+});
+
+colorMode.addEventListener('click', () => {
+    rainbowMode.classList.remove('selected');
+    eraser.classList.remove('selected');
+    clear.classList.remove('selected');
+    colorMode.classList.add('selected');
+});
+
+rainbowMode.addEventListener('click', () => {
+    colorMode.classList.remove('selected');
+    eraser.classList.remove('selected');
+    clear.classList.remove('selected');
+    rainbowMode.classList.add('selected');
+});
+
+eraser.addEventListener('click', () => {
+    rainbowMode.classList.remove('selected');
+    colorMode.classList.remove('selected');
+    clear.classList.remove('selected');
+    eraser.classList.add('selected');
+});
+
+clear.addEventListener('click', () => {
+    rainbowMode.classList.remove('selected');
+    eraser.classList.remove('selected');
+    colorMode.classList.remove('selected');
+    clear.classList.add('selected');
 });
 
 
