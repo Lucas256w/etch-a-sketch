@@ -28,7 +28,7 @@ function createCanvas(value) {
             })
             squareColumn.addEventListener('mouseover', () => {
                 if (isDrawing) {
-                    squareColumn.style.backgroundColor = "black"
+                    squareColumn.style.backgroundColor = color
                 }
             });
         }
@@ -54,7 +54,6 @@ slider.addEventListener('input', function() {
 
 colorSelect.addEventListener('change', function() {
     color = this.value
-    console.log(color);
 });
 
 
@@ -76,7 +75,7 @@ for (i = 0; i<sliderValue; i++) {
         })
         squareColumn.addEventListener('mouseover', () => {
             if (isDrawing) {
-                squareColumn.style.backgroundColor ='black'
+                squareColumn.style.backgroundColor = color
             }
         });
         
