@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Etch-A-Sketch</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>Etch-a-Sketch</header>
@@ -11,18 +12,20 @@
         <div class="container" id="main">
             <div id="selectCanvas">
                 <div id="menu">
-                    <div id="colors"></div>
+                    <input type="color" id="colors" value="#33272a"/>
                     <button class="selections">Color Mode</button>
                     <button class="selections">Rainbow Mode</button>
                     <button class="selections">Eraser</button>
                     <button class="selections">Claer</button>
                 </div>
 
-                <div id="canvas">canvas</div>
-            </div>
+                <div id="canvas"></div>
 
-            <div id="slider-container"> 16 x 16
-                <input type="range" min="16" max="64" value="16" class="slider">
+            </div>
+            
+            <div id="sliderValue">16 x 16</div>
+            <div id="slider-container">
+                <input type="range" min="16" max="64" value="16" class="slider"/>
             </div>
         </div>
 
