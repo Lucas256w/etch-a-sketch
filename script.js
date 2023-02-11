@@ -1,7 +1,15 @@
 let sliderValue = 16;
 let isDrawing = false;
 let color = '#33272a'
+let rainbowTime = false
+let eraserTime = false
 
+function getRandomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+  }
 
 function changeSliderValue(value2) {
     sliderValueText.textContent = value2 + " x " + value2;
@@ -28,12 +36,21 @@ function createCanvas(value) {
             })
             squareColumn.addEventListener('mouseover', () => {
                 if (isDrawing) {
-                    squareColumn.style.backgroundColor = color
+                    if (rainbowTime){
+                        squareColumn.style.backgroundColor = getRandomColor();
+                    } 
+                    else if(eraserTime) {
+                        squareColumn.style.backgroundColor = 'white';
+                    }
+                    else {
+                        squareColumn.style.backgroundColor = color;
+                    }
                 }
             });
         }
     }
 }
+
 
 const canvas = document.querySelector("#canvas");
 const slider = document.querySelector('.slider');
@@ -44,7 +61,7 @@ const colorMode = document.querySelector('.colorMode');
 const rainbowMode = document.querySelector('.rainbowMode');
 const eraser = document.querySelector('.eraser');
 const clear = document.querySelector('.clear');
-const button = document.querySelectorAll('button')
+const label = document.querySelector('label')
 
 colorMode.classList.add('selected');
 
@@ -67,30 +84,36 @@ colorSelect.addEventListener('change', function() {
 colorMode.addEventListener('click', () => {
     rainbowMode.classList.remove('selected');
     eraser.classList.remove('selected');
-    clear.classList.remove('selected');
     colorMode.classList.add('selected');
+
+    rainbowTime = false;
+    eraserTime = false;
 });
 
 rainbowMode.addEventListener('click', () => {
     colorMode.classList.remove('selected');
     eraser.classList.remove('selected');
-    clear.classList.remove('selected');
     rainbowMode.classList.add('selected');
+
+    rainbowTime = true;
+    eraserTime = false;
 });
 
 eraser.addEventListener('click', () => {
     rainbowMode.classList.remove('selected');
     colorMode.classList.remove('selected');
-    clear.classList.remove('selected');
     eraser.classList.add('selected');
+
+    rainbowTime = false;
+    eraserTime = true;
 });
 
-clear.addEventListener('click', () => {
-    rainbowMode.classList.remove('selected');
-    eraser.classList.remove('selected');
-    colorMode.classList.remove('selected');
-    clear.classList.add('selected');
-});
+// clear.addEventListener('click', () => {
+//     rainbowMode.classList.remove('selected');
+//     eraser.classList.remove('selected');
+//     colorMode.classList.remove('selected');
+//     clear.classList.add('selected');
+// });
 
 
 for (i = 0; i<sliderValue; i++) {
@@ -111,7 +134,15 @@ for (i = 0; i<sliderValue; i++) {
         })
         squareColumn.addEventListener('mouseover', () => {
             if (isDrawing) {
-                squareColumn.style.backgroundColor = color
+                if (rainbowTime){
+                    squareColumn.style.backgroundColor = getRandomColor();
+                } 
+                else if(eraserTime) {
+                    squareColumn.style.backgroundColor = 'white';
+                }
+                else {
+                    squareColumn.style.backgroundColor = color;
+                }
             }
         });
         
