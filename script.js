@@ -108,12 +108,9 @@ eraser.addEventListener('click', () => {
     eraserTime = true;
 });
 
-// clear.addEventListener('click', () => {
-//     rainbowMode.classList.remove('selected');
-//     eraser.classList.remove('selected');
-//     colorMode.classList.remove('selected');
-//     clear.classList.add('selected');
-// });
+clear.addEventListener('click', () => {
+   createCanvas(sliderValue);
+});
 
 
 for (i = 0; i<sliderValue; i++) {
